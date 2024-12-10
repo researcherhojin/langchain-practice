@@ -1,80 +1,102 @@
-# LangChain Practice
+# LangChain Practice: 21-Day Hands-On Project
 
-LangChain을 활용한 21일간의 실습 프로젝트입니다.
+## 📝 Introduction
 
-## 📝 프로젝트 소개
+This project is a 21-day hands-on exploration of LangChain's diverse functionalities. Each day focuses on a unique topic, with outputs and insights recorded throughout the project.
 
--   LangChain의 다양한 기능을 실험하고 학습하는 프로젝트
--   매일 다른 주제로 실습을 진행하며 결과물을 기록
--   2024.12.09 - 2024.12.29 (21일간 진행)
+-   **Duration:** December 9, 2024 – December 29, 2024
+-   **Objective:** Experiment with LangChain's features and build practical applications.
 
-## 📅 진행 상황
+---
 
-### Day 01 (2024.12.09) - 프로그래밍 언어 시 생성기
+## 📅 Progress
 
--   ChatPromptTemplate을 활용한 프롬프트 엔지니어링
--   LCEL(LangChain Expression Language)을 활용한 체인 구성
--   주요 프로그래밍 언어(Python, Java, JavaScript 등)에 대한 시 생성
--   생성된 시에 대한 문학적 해석 추가
--   결과물 자동 저장 기능 구현
+### Day 01 (2024.12.09) - Programming Language Poetry Generator
 
-#### 사용된 주요 기능
+-   Utilized `ChatPromptTemplate` for prompt engineering.
+-   Created chains with `LangChain Expression Language (LCEL)`.
+-   Generated poetry reflecting characteristics of major programming languages (Python, Java, JavaScript, etc.).
+-   Added literary analysis for each generated poem.
+-   Implemented automatic saving of outputs.
 
--   `ChatPromptTemplate`: 구조화된 프롬프트 생성
--   `ChatOpenAI`: GPT 모델 인터페이스
--   `RunnablePassthrough`: 체인 데이터 흐름 제어
--   `StreamingStdOutCallbackHandler`: 실시간 출력 스트리밍
+#### Key Features Used
 
-#### 결과물
+-   **`ChatPromptTemplate`**: Structured prompt generation.
+-   **`ChatOpenAI`**: Interface with GPT models.
+-   **`RunnablePassthrough`**: Chain data flow control.
+-   **`StreamingStdOutCallbackHandler`**: Real-time output streaming.
 
--   프로그래밍 언어별 특성을 반영한 시 생성
--   생성된 시에 대한 전문적인 해석
--   자동 저장 및 관리 시스템
+#### Result
 
-## 🛠 기술 스택
+-   Poetry generation capturing unique traits of programming languages.
+-   Professional analysis of generated poetry.
+-   Automatic file saving and management system.
+
+### Day 02 (2024.12.10) - Movie Information Chain with Few-Shot Learning
+
+-   Implemented Few-Shot learning using `FewShotChatMessagePromptTemplate`
+-   Created structured movie information responses using example-based learning
+-   Generated comprehensive movie information including director, cast, budget, revenue, genre, and synopsis
+-   Maintained consistent output format through example-based prompting
+-   Enhanced response accuracy with temperature control
+
+#### Key Features Used
+
+-   **`FewShotChatMessagePromptTemplate`**: Example-based prompt structuring
+-   **`ChatPromptTemplate`**: System and user message formatting
+-   **`ChatOpenAI`**: GPT model interface with streaming
+-   **Temperature Control**: Maintaining response consistency
+
+#### Result
+
+-   Structured movie information retrieval system
+-   Consistent output formatting across different queries
+-   Comprehensive movie details in a standardized format
+
+---
+
+## 🛠 Tech Stack
 
 -   Python
 -   LangChain
 -   OpenAI GPT-4
 -   Jupyter Notebook
 
-## 📁 프로젝트 구조
+---
+
+## 📁 Project Structure
 
 ```
 langchain-practice/
 ├── README.md
 ├── .gitignore
 ├── day01/
-│   └── [생성된 시 파일들]
-└── day01.ipynb
+│   └── [Generated Poetry Files]
+├── day01.ipynb
+└── day02.ipynb
 ```
 
-## 🚀 실행 방법
+## 🚀 How to Run
 
-1. 환경 설정
+1. **Set Up the Environment**
 
 ```bash
-# 필요한 패키지 설치
+# Install required packages
 pip install langchain langchain-openai
 ```
 
-2. 환경 변수 설정
+2. Configure Environment Variables
 
 ```
-# .env 파일에 API 키 설정
-OPENAI_API_KEY=your_api_key_here
+# Create a .env file with the following keys
+OPENAI_API_KEY=your_openai_api_key_here
 LANGCHAIN_API_KEY=your_langchain_api_key_here
 ```
 
-3. 노트북 실행
+3. Run the Notebook
 
--   Jupyter Notebook에서 day01.ipynb 실행
+-   Open day01.ipynb in Jupyter Notebook and execute the cells.
 
-## 👥 기여 방법
+## 📌 References
 
--   Issue 생성: 버그 리포트, 기능 제안
--   Pull Request: 코드 개선, 새로운 기능 추가
-
-## 📌 참고 자료
-
--   [LangChain 공식 문서](https://python.langchain.com/docs/get_started/introduction)
+-   [LangChain Official Documentation](https://python.langchain.com/docs/get_started/introduction)
