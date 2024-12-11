@@ -40,6 +40,28 @@ This project is a 21-day hands-on exploration of LangChain's diverse functionali
 -   Maintained consistent output format through example-based prompting
 -   Enhanced response accuracy with temperature control
 
+### Day 03 (2024.12.11) - Enhanced Movie Emoji Generator with Memory
+
+-   Implemented advanced memory management using `ConversationBufferMemory`
+-   Created custom `EnhancedMovieMemory` class for structured data storage
+-   Developed few-shot learning system for consistent emoji generation
+-   Added comprehensive search and retrieval functionalities
+-   Implemented timestamp tracking and genre-based filtering
+
+#### Key Features Used
+
+-   **`ConversationBufferMemory`**: Enhanced conversation history tracking
+-   **`FewShotChatMessagePromptTemplate`**: Example-based emoji generation
+-   **`RunnablePassthrough`**: Advanced chain data flow management
+-   **Custom Memory Management**: Timestamp and genre-based movie information storage
+
+#### Result
+
+-   Movie emoji generation with consistent format
+-   Advanced memory system with search capabilities
+-   Genre-based movie filtering system
+-   Comprehensive movie information tracking and retrieval
+
 #### Key Features Used
 
 -   **`FewShotChatMessagePromptTemplate`**: Example-based prompt structuring
@@ -74,6 +96,7 @@ langchain-practice/
 │   └── [Generated Poetry Files]
 ├── day01.ipynb
 └── day02.ipynb
+└── day03.ipynb
 ```
 
 ## 🚀 How to Run
