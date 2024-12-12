@@ -40,28 +40,6 @@ This project is a 21-day hands-on exploration of LangChain's diverse functionali
 -   Maintained consistent output format through example-based prompting
 -   Enhanced response accuracy with temperature control
 
-### Day 03 (2024.12.11) - Enhanced Movie Emoji Generator with Memory
-
--   Implemented advanced memory management using `ConversationBufferMemory`
--   Created custom `EnhancedMovieMemory` class for structured data storage
--   Developed few-shot learning system for consistent emoji generation
--   Added comprehensive search and retrieval functionalities
--   Implemented timestamp tracking and genre-based filtering
-
-#### Key Features Used
-
--   **`ConversationBufferMemory`**: Enhanced conversation history tracking
--   **`FewShotChatMessagePromptTemplate`**: Example-based emoji generation
--   **`RunnablePassthrough`**: Advanced chain data flow management
--   **Custom Memory Management**: Timestamp and genre-based movie information storage
-
-#### Result
-
--   Movie emoji generation with consistent format
--   Advanced memory system with search capabilities
--   Genre-based movie filtering system
--   Comprehensive movie information tracking and retrieval
-
 #### Key Features Used
 
 -   **`FewShotChatMessagePromptTemplate`**: Example-based prompt structuring
@@ -74,6 +52,35 @@ This project is a 21-day hands-on exploration of LangChain's diverse functionali
 -   Structured movie information retrieval system
 -   Consistent output formatting across different queries
 -   Comprehensive movie details in a standardized format
+
+### Day 03 ~ 04 (2024.12.11 ~ 12) - Enhanced Movie Emoji Generator with Memory
+
+-   Implemented advanced memory management using `ConversationBufferMemory`
+-   Created custom `EnhancedMovieMemory` class for structured data storage
+-   Developed few-shot learning system for consistent emoji generation
+-   Added comprehensive search and retrieval functionalities
+-   Implemented persistent storage with JSON file backup
+-   Added statistical analysis and multi-genre search capabilities
+-   Implemented time-based filtering and movie information management
+
+#### Key Features Used
+
+-   **`ConversationBufferMemory`**: Enhanced conversation history tracking
+-   **`FewShotChatMessagePromptTemplate`**: Example-based emoji generation
+-   **`RunnablePassthrough`**: Advanced chain data flow management
+-   **Custom Memory Management**:
+    -   Timestamp and genre-based filtering
+    -   Persistent storage system
+    -   Statistical analysis
+    -   Multi-genre search capability
+
+#### Result
+
+-   Movie emoji generation with consistent format
+-   Advanced memory system with search capabilities
+-   Genre-based and time-based filtering
+-   Comprehensive movie information tracking
+-   Statistical analysis of movie data
 
 ---
 
