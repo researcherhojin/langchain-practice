@@ -82,6 +82,30 @@ This project is a 21-day hands-on exploration of LangChain's diverse functionali
 -   Comprehensive movie information tracking
 -   Statistical analysis of movie data
 
+### Day 05~07 (2024.12.13 ~ 15) - Literary Analysis RAG with Memory
+
+-   Implemented RAG (Retrieval Augmented Generation) pipeline for literary text analysis
+-   Enhanced text processing with sophisticated chunking strategies
+-   Integrated conversation memory for context-aware responses
+-   Developed precise retrieval system for literary context
+-   Created detailed prompt engineering for accurate text analysis
+
+#### Key Features Used
+
+-   **`TextLoader & CharacterTextSplitter`**: Advanced text processing
+-   **`CacheBackedEmbeddings`**: Efficient embedding management
+-   **`FAISS`**: Sophisticated vector similarity search
+-   **`ConversationBufferMemory`**: Context-aware conversation handling
+-   **Chunking Strategy**: Optimized text segmentation for literary analysis
+
+#### Result
+
+-   Accurate literary text analysis system
+-   Context-aware response generation
+-   Detailed character and plot analysis capabilities
+-   Memory-enhanced conversation flow
+-   Efficient text retrieval and analysis
+
 ---
 
 ## 🛠 Tech Stack
