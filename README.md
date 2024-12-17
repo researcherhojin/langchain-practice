@@ -106,6 +106,30 @@ This project is a 21-day hands-on exploration of LangChain's diverse functionali
 -   Memory-enhanced conversation flow
 -   Efficient text retrieval and analysis
 
+### Day 09~11 (2024.12.17 ~ 19) - Streamlit RAG Application with Token Tracking
+
+-   Migrated RAG pipeline to Streamlit web application
+-   Implemented automatic file encoding detection
+-   Added token usage tracking and cost estimation
+-   Enhanced memory management with session state
+-   Developed real-time conversation logging system
+
+#### Key Features Used
+
+-   **`Streamlit`**: Interactive web interface
+-   **`ConversationBufferMemory`**: Enhanced session management
+-   **`TokenUsageTracker`**: Custom token and cost tracking
+-   **`CharDet`**: Automatic encoding detection
+-   **`FAISS & OpenAIEmbeddings`**: Efficient vector search
+
+#### Result
+
+-   Interactive web-based RAG system
+-   Automatic file encoding handling
+-   Real-time token usage monitoring
+-   Cost-effective API usage tracking
+-   Robust error handling and logging
+
 ---
 
 ## 🛠 Tech Stack
