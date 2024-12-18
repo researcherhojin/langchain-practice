@@ -3,14 +3,13 @@ import logging
 from pathlib import Path
 import sys
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-from langchain_openai import ChatOpenAI, OpenAIEmbeddings
-from langchain_community.document_loaders import TextLoader
-from langchain_text_splitters import CharacterTextSplitter
-from langchain.embeddings import CacheBackedEmbeddings
-from langchain.storage import LocalFileStore
+from langchain_community.chat_models import ChatOpenAI
+from langchain_community.embeddings import OpenAIEmbeddings
+from langchain.text_splitter import CharacterTextSplitter
 from langchain_community.vectorstores import FAISS
 from langchain.memory import ConversationBufferMemory
 from langchain_core.runnables import RunnablePassthrough
+from langchain.schema import Document
 import tempfile
 import os
 import chardet
@@ -50,7 +49,11 @@ def is_valid_openai_api_key(api_key):
 def detect_file_encoding(file_content):
     result = chardet.detect(file_content)
     logger.info(f"Detected encoding: {result}")
-    return result["encoding"]
+    encoding = result["encoding"]
+    # 감지 실패 시 기본 utf-8-sig로 설정
+    if encoding is None:
+        encoding = "utf-8-sig"
+    return encoding
 
 
 # 체인 히스토리 가져오기 함수
@@ -64,7 +67,25 @@ def get_chain_history(x):
     return []
 
 
-# RAG 파이프라인 설정
+# 다양한 인코딩을 시도하여 문서를 로드하는 함수
+def load_documents_with_multiple_encodings(file_path, primary_encoding):
+    """주어진 파일을 여러 인코딩을 시도하여 문자열로 로드한 후 Document 객체로 반환"""
+    encodings_to_try = [primary_encoding, "cp949", "utf-8-sig", "latin-1"]
+    with open(file_path, "rb") as f:
+        raw_data = f.read()
+
+    for enc in encodings_to_try:
+        try:
+            text = raw_data.decode(enc)
+            return [Document(page_content=text)]
+        except UnicodeDecodeError:
+            logger.warning(f"Failed to decode with {enc}, trying next...")
+
+    # 모든 인코딩 시도 실패
+    raise RuntimeError(f"Unable to load document with fallback encodings.")
+
+
+# RAG 파이프라인 설정 함수
 def setup_rag_pipeline(file_path, openai_api_key, encoding):
     try:
         logger.info(f"Attempting to load file from path: {file_path}")
@@ -72,15 +93,11 @@ def setup_rag_pipeline(file_path, openai_api_key, encoding):
         logger.info(f"File size: {Path(file_path).stat().st_size} bytes")
         logger.info(f"Using encoding: {encoding}")
 
-        # 문서 로드
-        loader = TextLoader(file_path, encoding=encoding)
-        try:
-            documents = loader.load()
-            logger.info("Successfully loaded document")
-        except UnicodeDecodeError as e:
-            logger.error(f"Failed to decode with {encoding} encoding: {str(e)}")
-            raise RuntimeError(f"Failed to decode file with {encoding} encoding")
+        # 문서 로드 (다양한 인코딩 시도)
+        documents = load_documents_with_multiple_encodings(file_path, encoding)
+        logger.info("Successfully loaded document")
 
+        # 텍스트 분할
         text_splitter = CharacterTextSplitter(
             chunk_size=2000, chunk_overlap=200, separator="\n"
         )
@@ -89,16 +106,12 @@ def setup_rag_pipeline(file_path, openai_api_key, encoding):
 
         # 임베딩 설정
         embeddings = OpenAIEmbeddings(openai_api_key=openai_api_key)
-        fs = LocalFileStore("./cache/")
-        cached_embedder = CacheBackedEmbeddings.from_bytes_store(
-            embeddings, fs, namespace=embeddings.model
-        )
 
         # 벡터 스토어 생성
-        vectorstore = FAISS.from_documents(splits, cached_embedder)
+        vectorstore = FAISS.from_documents(splits, embeddings)
         retriever = vectorstore.as_retriever(search_kwargs={"k": 5})
 
-        # 프롬프트 템플릿
+        # 프롬프트 템플릿 설정
         prompt = ChatPromptTemplate.from_messages(
             [
                 (
@@ -160,20 +173,20 @@ with st.sidebar:
     # 깃허브 링크
     st.markdown(
         """
-        ### Links
-        - [GitHub Repository](https://github.com/yourusername/your-repo)
-        """
+       ### Links
+       - [GitHub Repository](https://github.com/researcherhojin/langchain-practice)
+       """
     )
 
     st.markdown("---")
 
-# 메인 페이지
+# 메인 페이지 설정
 st.title("📚 Literary Analysis RAG")
 st.markdown(
     """
-    Upload a text file and ask questions about it. 
-    The app will use RAG (Retrieval Augmented Generation) to provide accurate answers.
-    """
+   Upload a text file and ask questions about it. 
+   The app will use RAG (Retrieval Augmented Generation) to provide accurate answers.
+   """
 )
 
 # 파일 업로더
@@ -181,7 +194,7 @@ uploaded_file = st.file_uploader(
     "Upload a text file", type=["txt"], help="Upload a text file to analyze"
 )
 
-# 파일이 업로드되고 API 키가 제공된 경우
+# 파일이 업로드되고 API 키가 제공된 경우 처리
 if uploaded_file and openai_api_key and is_valid_openai_api_key(openai_api_key):
     try:
         # 파일 내용 읽기
@@ -220,6 +233,8 @@ if uploaded_file and openai_api_key and is_valid_openai_api_key(openai_api_key):
                 with st.chat_message("assistant"):
                     response = st.session_state["chain"].invoke(prompt)
                     st.markdown(response.content)
+
+                    # 히스토리 업데이트
                     st.session_state["messages"].append(
                         {"role": "assistant", "content": response.content}
                     )
@@ -254,4 +269,4 @@ if st.sidebar.button("Clear Chat History"):
     st.session_state["messages"] = []
     st.session_state["memory"].clear()
     st.session_state["chain"] = None
-    st.rerun()
+    st.experimental_rerun()
