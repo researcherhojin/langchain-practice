@@ -111,15 +111,13 @@ This project is a 21-day hands-on exploration of LangChain's diverse functionali
 -   Migrated RAG pipeline to Streamlit web application
 -   Implemented automatic file encoding detection
 -   Added token usage tracking and cost estimation
--   Enhanced memory management with session state
 -   Developed real-time conversation logging system
 
 #### Key Features Used
 
 -   **`Streamlit`**: Interactive web interface
--   **`ConversationBufferMemory`**: Enhanced session management
 -   **`TokenUsageTracker`**: Custom token and cost tracking
--   **`CharDet`**: Automatic encoding detection
+-   **`Chardet`**: Automatic encoding detection
 -   **`FAISS & OpenAIEmbeddings`**: Efficient vector search
 
 #### Result
@@ -137,7 +135,9 @@ This project is a 21-day hands-on exploration of LangChain's diverse functionali
 -   Python
 -   LangChain
 -   OpenAI GPT-4
--   Jupyter Notebook
+-   Streamlit
+-   FAISS
+-   Chardet
 
 ---
 
@@ -147,11 +147,18 @@ This project is a 21-day hands-on exploration of LangChain's diverse functionali
 langchain-practice/
 ├── README.md
 ├── .gitignore
-├── day01/
-│   └── [Generated Poetry Files]
 ├── day01.ipynb
-└── day02.ipynb
-└── day03.ipynb
+├── day02.ipynb
+├── day03~04.ipynb
+├── day05~07.ipynb
+├── day09~11/
+│   ├── .gitignore
+│   ├── app.py
+│   └── requirements.txt
+└── results/
+    ├── day01/
+    │   └── [Generated Poetry Files]
+    └── movie_memory.json
 ```
 
 ## 🚀 How to Run
@@ -173,8 +180,16 @@ LANGCHAIN_API_KEY=your_langchain_api_key_here
 
 3. Run the Notebook
 
--   Open day01.ipynb in Jupyter Notebook and execute the cells.
+-   Open .ipynb in Jupyter Notebook and execute the cells.
+
+4. Run the Streamlit App
+
+```bash
+cd day09~11
+pip install -r requirements.txt
+streamlit run app.py
 
 ## 📌 References
 
 -   [LangChain Official Documentation](https://python.langchain.com/docs/get_started/introduction)
+```
