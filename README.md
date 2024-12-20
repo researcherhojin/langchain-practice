@@ -189,44 +189,48 @@ langchain-practice/
 └── movie_memory.json
 ```
 
+---
+
 ## 🚀 How to Run
 
 1. **Set Up the Environment**
 
-````bash
+```bash
 # Clone the repository
 git clone https://github.com/researcherhojin/langchain-practice.git
 cd langchain-practice
 
 # Install required packages
 pip install -r requirements.txt
+```
 
-2. Configure Environment Variables
+2. **Configure Environment Variables**
 
 ```bash
 # Create .env file in the project root
-
 OPENAI_API_KEY=your_openai_api_key_here
-LANGCHAIN_API_KEY=your_langchain_api_key_here
+```
 
-````
+3. **Run Applications**
 
-3. Run Applications
+-   For Notebooks:
 
-For Notebooks:
-
-````bash
+```bash
 jupyter notebook notebooks/
+```
 
-For RAG Application:
+-   For RAG Application:
+
 ```bash
 streamlit run apps/rag_app/app.py
+```
 
-For QuizGPT Application:
+-   For QuizGPT Application:
+
 ```bash
 streamlit run apps/quiz_app/app.py
+```
 
 ## 📌 References
 
 -   [LangChain Official Documentation](https://python.langchain.com/docs/get_started/introduction)
-````
