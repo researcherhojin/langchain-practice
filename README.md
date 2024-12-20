@@ -128,6 +128,30 @@ This project is a 21-day hands-on exploration of LangChain's diverse functionali
 -   Cost-effective API usage tracking
 -   Robust error handling and logging
 
+### Day 12~14 (2024.12.20 ~ 22) - QuizGPT with Function Calling
+
+-   Developed interactive quiz generation application using Streamlit
+-   Implemented OpenAI function calling for structured quiz format
+-   Added difficulty customization and dynamic scoring system
+-   Created comprehensive feedback system with explanations
+-   Integrated session state management for quiz progression
+
+#### Key Features Used
+
+-   **`Function Calling`**: Structured quiz generation
+-   **`StreamLit`**: Interactive web interface
+-   **`Session State`**: Quiz progression management
+-   **Logging System**: Comprehensive error tracking
+-   **Custom Scoring**: Validated score calculation
+
+#### Result
+
+-   Interactive quiz generation system
+-   Customizable difficulty levels
+-   Real-time feedback and explanations
+-   Progress tracking and statistics
+-   Retake functionality for practice
+
 ---
 
 ## 🛠 Tech Stack
@@ -146,50 +170,63 @@ This project is a 21-day hands-on exploration of LangChain's diverse functionali
 ```
 langchain-practice/
 ├── README.md
-├── .gitignore
-├── day01.ipynb
-├── day02.ipynb
-├── day03~04.ipynb
-├── day05~07.ipynb
-├── day09~11/
-│   ├── .gitignore
-│   ├── app.py
-│   └── requirements.txt
-└── results/
-    ├── day01/
-    │   └── [Generated Poetry Files]
-    └── movie_memory.json
+├── requirements.txt                # Project dependencies
+├── apps/                          # Streamlit applications
+│   ├── quiz_app/                  # QuizGPT application
+│   │   └── app.py
+│   └── rag_app/                   # RAG application
+│       └── app.py
+├── notebooks/                     # Jupyter notebooks
+│   ├── data/                      # Data files for notebooks
+│   │   └── murder_mystery.txt
+│   ├── day01.ipynb
+│   ├── day02.ipynb
+│   ├── day03~04.ipynb
+│   └── day05~07.ipynb
+└── results/                       # Generated outputs
+├── day01/
+│   └── [Generated Poetry Files]
+└── movie_memory.json
 ```
 
 ## 🚀 How to Run
 
 1. **Set Up the Environment**
 
-```bash
+````bash
+# Clone the repository
+git clone https://github.com/researcherhojin/langchain-practice.git
+cd langchain-practice
+
 # Install required packages
-pip install langchain langchain-openai
-```
+pip install -r requirements.txt
 
 2. Configure Environment Variables
 
-```
-# Create a .env file with the following keys
+```bash
+# Create .env file in the project root
+
 OPENAI_API_KEY=your_openai_api_key_here
 LANGCHAIN_API_KEY=your_langchain_api_key_here
-```
 
-3. Run the Notebook
+````
 
--   Open .ipynb in Jupyter Notebook and execute the cells.
+3. Run Applications
 
-4. Run the Streamlit App
+For Notebooks:
 
+````bash
+jupyter notebook notebooks/
+
+For RAG Application:
 ```bash
-cd day09~11
-pip install -r requirements.txt
-streamlit run app.py
+streamlit run apps/rag_app/app.py
+
+For QuizGPT Application:
+```bash
+streamlit run apps/quiz_app/app.py
 
 ## 📌 References
 
 -   [LangChain Official Documentation](https://python.langchain.com/docs/get_started/introduction)
-```
+````
