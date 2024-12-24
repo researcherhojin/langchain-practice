@@ -1,8 +1,31 @@
-streamlit
+# Core Dependencies
 langchain
+langchain-core
 langchain-openai
 langchain-community
 faiss-cpu
+
+# Web Application Framework
+streamlit
+
+# Environment and Configuration
 python-dotenv
 watchdog
 chardet
+
+# Additional Recommended Packages
+openai
+tiktoken
+pandas
+numpy
+
+# Optional but Useful for Advanced Features
+httpx
+beautifulsoup4
+
+# Development and Debugging
+rich
+
+# Pinning these for consistency
+requests
+typing-extensions
