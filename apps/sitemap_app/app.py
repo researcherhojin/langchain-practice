@@ -744,6 +744,9 @@ def setup_sidebar():
         st.markdown("---")
         st.markdown("### Links")
         st.markdown("- [Cloudflare Developer Docs](https://developers.cloudflare.com/)")
+        st.markdown(
+            "- [GitHub Repository](https://github.com/researcherhojin/langchain-practice)"
+        )
 
         return st.session_state.get("openai_api_key", ""), selected_products
 
