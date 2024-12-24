@@ -152,6 +152,32 @@ This project is a 21-day hands-on exploration of LangChain's diverse functionali
 -   Progress tracking and statistics
 -   Retake functionality for practice
 
+### Day 15~16 (2024.12.23 ~ 24) - Cloudflare Docs GPT with LangChain
+
+-   Developed a documentation chatbot for Cloudflare products using LangChain and Streamlit
+-   Implemented intelligent document retrieval using FAISS vector store
+-   Created streaming response generation with real-time token display
+-   Added support for multiple Cloudflare product documentation
+-   Implemented embeddings and chat model selection with OpenAI API
+
+#### Key Features Used
+
+-   **`SitemapLoader & WebBaseLoader`**: Efficient documentation loading
+-   **`FAISS`**: Vector similarity search for relevant content
+-   **`OpenAIEmbeddings`**: Document vectorization
+-   **`ChatOpenAI`**: Streaming response generation
+-   **`StreamingCallbackHandler`**: Real-time response display
+-   **Document Processing**: Chunking and context optimization
+-   **Error Handling**: Comprehensive error management
+
+#### Result
+
+-   Interactive documentation chatbot
+-   Multi-product documentation support
+-   Real-time streaming responses
+-   Context-aware answer generation
+-   Efficient document retrieval system
+
 ---
 
 ## 🛠 Tech Stack
@@ -169,24 +195,26 @@ This project is a 21-day hands-on exploration of LangChain's diverse functionali
 
 ```
 langchain-practice/
-├── README.md
-├── requirements.txt                # Project dependencies
-├── apps/                          # Streamlit applications
-│   ├── quiz_app/                  # QuizGPT application
+├── README.md                     # Project documentation
+├── requirements.txt              # Project dependencies
+├── .env                          # Environment variables
+├── .gitignore                    # git-ignored
+│
+├── apps/                         # Streamlit web applications
+│   ├── quiz_app/                 # QuizGPT application
 │   │   └── app.py
-│   └── rag_app/                   # RAG application
+│   ├── rag_app/                  # RAG application
+│   │   └── app.py
+│   └── sitemap_app/              # Cloudflare documentation chatbot
 │       └── app.py
-├── notebooks/                     # Jupyter notebooks
-│   ├── data/                      # Data files for notebooks
-│   │   └── murder_mystery.txt
-│   ├── day01.ipynb
-│   ├── day02.ipynb
-│   ├── day03~04.ipynb
-│   └── day05~07.ipynb
-└── results/                       # Generated outputs
-├── day01/
-│   └── [Generated Poetry Files]
-└── movie_memory.json
+│
+├── notebooks/                    # Jupyter notebooks for daily experiments
+│   ├── data/                     # Supporting data files
+│   └── day*.ipynb               # Daily experiment notebooks
+│
+└── results/                      # Generated outputs
+    ├── day01/                    # Poetry generation results
+    └── movie_memory.json         # Persistent movie data storage
 ```
 
 ---
@@ -229,6 +257,12 @@ langchain-practice/
 
     ```bash
     streamlit run apps/quiz_app/app.py
+    ```
+
+-   For Sitemap Documentation Chatbot:
+
+    ```bash
+    streamlit run apps/sitemap_app/app.py
     ```
 
 ## 📌 References
