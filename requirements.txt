@@ -18,6 +18,7 @@ openai
 tiktoken
 pandas
 numpy
+lxml
 
 # Optional but Useful for Advanced Features
 httpx
