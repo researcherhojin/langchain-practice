@@ -1,0 +1,22 @@
+```
+# Comprehensive Report on the XZ Backdoor
+
+## Introduction
+In February 2024, a malicious backdoor was introduced to the Linux build of the xz utility within the liblzma library in versions 5.6.0 and 5.6.1. This backdoor allows an attacker with a specific Ed448 private key to execute remote code on affected Linux systems.
+
+## Discovery
+The backdoor was discovered by software developer Andres Freund, who announced his findings on March 29, 2024. The issue has been assigned the Common Vulnerabilities and Exposures (CVE) number CVE-2024-3094 and has been given a CVSS score of 10.0, indicating a critical vulnerability.
+
+## Technical Details
+- **Malicious Code**: The backdoor was introduced through a software supply chain compromise. The malicious code modifies the way the xz utility functions, specifically manipulating the sshd executable file used for remote access.
+- **Obfuscation Techniques**: The liblzma build process extracts a prebuilt object file from a disguised test file within the source code, modifying specific functions in the liblzma code.
+
+## Response from Authorities
+- **CISA Recommendations**: The U.S. Cybersecurity and Infrastructure Security Agency (CISA) has recommended that organizations downgrade to a previous non-compromised version of XZ Utils to mitigate the risk associated with this vulnerability.
+
+## Conclusion
+The XZ backdoor represents a significant threat to Linux systems, particularly given its critical CVSS score and the potential for unauthorized remote access. Ongoing investigations by security researchers are expected to uncover more details about the nature and origins of this threat.
+
+## Error Handling Notes
+- All sources were successfully accessed and validated. No scraping failures occurred during the information gathering process.
+```
