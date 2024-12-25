@@ -215,12 +215,37 @@ This project is a 21-day hands-on exploration of LangChain's diverse functionali
 
 ## 🛠 Tech Stack
 
--   Python
--   LangChain
--   OpenAI GPT-4
--   Streamlit
--   FAISS
--   Chardet
+### Core Technologies
+
+-   **LangChain**: Framework for LLM applications
+    -   langchain-core: Core functionalities
+    -   langchain-openai: OpenAI integration
+    -   langchain-community: Community tools
+-   **OpenAI GPT-4**: Large Language Model
+
+### Web & Interface
+
+-   **Streamlit**: Web application framework
+-   **HTML/CSS**: Basic web styling
+-   **Markdown**: Documentation format
+
+### Data Processing & Storage
+
+-   **FAISS**: Vector similarity search
+-   **NumPy**: Numerical computing
+-   **Pandas**: Data manipulation
+
+### Development Tools
+
+-   **Jupyter Notebook**: Interactive development
+-   **Git**: Version control
+-   **dotenv**: Environment management
+
+### Utilities
+
+-   **Chardet**: Character encoding detection
+-   **BeautifulSoup4**: Web scraping
+-   **Rich**: Terminal formatting
 
 ---
 
@@ -231,7 +256,7 @@ langchain-practice/
 ├── README.md                     # Project documentation
 ├── requirements.txt              # Project dependencies
 ├── .env                          # Environment variables
-├── .gitignore                    # git-ignored
+├── .gitignore                    # Git ignored files
 │
 ├── apps/                         # Streamlit web applications
 │   ├── quiz_app/                 # QuizGPT application
@@ -243,7 +268,12 @@ langchain-practice/
 │
 ├── notebooks/                    # Jupyter notebooks for daily experiments
 │   ├── data/                     # Supporting data files
-│   └── day*.ipynb               # Daily experiment notebooks
+│   ├── day01.ipynb               # Poetry Generator
+│   ├── day02.ipynb               # Movie Information Chain
+│   ├── day0304.ipynb             # Movie Emoji Generator
+│   ├── day0507.ipynb             # Literary Analysis RAG
+│   ├── day17~18.ipynb            # Research AI Agent
+│   └── research_results/         # Research output storage
 │
 └── results/                      # Generated outputs
     ├── day01/                    # Poetry generation results
@@ -254,14 +284,20 @@ langchain-practice/
 
 ## 🚀 How to Run
 
-1. **Set Up the Environment**
+1. **Set Up Python Environment**
 
     ```bash
+    # Install Conda (if not already installed)
+    # Visit https://docs.conda.io/en/latest/miniconda.html
+
+    # Create and activate conda environment
+    conda create -n langchain python=3.12.8
+
     # Clone the repository
     git clone https://github.com/researcherhojin/langchain-practice.git
     cd langchain-practice
 
-    # Install required packages
+    # Install core dependencies
     pip install -r requirements.txt
     ```
 
@@ -269,35 +305,42 @@ langchain-practice/
 
     ```bash
     # Create .env file in the project root
+    cp .env.example .env
+    # Add your API keys to .env file
     OPENAI_API_KEY=your_openai_api_key_here
     ```
 
 3. **Run Applications**
 
--   For Notebooks:
-
     ```bash
-    jupyter notebook notebooks/
+    # Activate conda environment (if not already activated)
     ```
 
--   For RAG Application:
+    - For Notebooks:
 
-    ```bash
-    streamlit run apps/rag_app/app.py
-    ```
+        ```bash
+        jupyter notebook notebooks/
+        ```
 
--   For QuizGPT Application:
+    - For RAG Application:
 
-    ```bash
-    streamlit run apps/quiz_app/app.py
-    ```
+        ```bash
+        streamlit run apps/rag_app/app.py
+        ```
 
--   For Sitemap Documentation Chatbot:
+    - For QuizGPT Application:
 
-    ```bash
-    streamlit run apps/sitemap_app/app.py
-    ```
+        ```bash
+        streamlit run apps/quiz_app/app.py
+        ```
+
+    - For Sitemap Documentation Chatbot:
+
+        ```bash
+        streamlit run apps/sitemap_app/app.py
+        ```
 
 ## 📌 References
 
 -   [LangChain Official Documentation](https://python.langchain.com/docs/get_started/introduction)
+-   [Conda User Guide](https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html)
