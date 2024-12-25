@@ -178,6 +178,39 @@ This project is a 21-day hands-on exploration of LangChain's diverse functionali
 -   Context-aware answer generation
 -   Efficient document retrieval system
 
+### Day 17~18 (2024.12.25 ~ 26) - Research AI Agent with Custom Tools
+
+-   Developed an AI research agent using LangChain's Agent framework
+-   Implemented custom tools for web research and information gathering
+-   Created comprehensive error handling and rate limit management
+-   Developed structured report generation and file saving system
+-   Integrated multiple search sources (Wikipedia, DuckDuckGo)
+
+#### Key Features Used
+
+-   **`Custom Tools Development`**:
+    -   Wikipedia search integration
+    -   Rate-limited DuckDuckGo search
+    -   Web content scraping with error handling
+    -   Automated file saving system
+-   **`Agent Framework`**:
+    -   Zero-shot agent implementation
+    -   Tool selection and coordination
+    -   Structured output generation
+-   **`Error Handling`**:
+    -   Rate limit management
+    -   URL validation
+    -   Content extraction error handling
+    -   Retry logic for failed requests
+
+#### Result
+
+-   Automated research capability
+-   Multi-source information gathering
+-   Structured report generation
+-   Persistent storage of research results
+-   Robust error handling system
+
 ---
 
 ## 🛠 Tech Stack
