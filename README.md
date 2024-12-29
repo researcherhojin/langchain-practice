@@ -211,6 +211,43 @@ This project is a 21-day hands-on exploration of LangChain's diverse functionali
 -   Persistent storage of research results
 -   Robust error handling system
 
+### Day 19~21 (2024.12.27 ~ 29) - Research Paper Analysis Assistant with OpenAI
+
+-   Developed comprehensive research paper analysis tool using OpenAI Assistant
+-   Implemented PDF and arXiv paper processing capabilities
+-   Created interactive chat interface with Streamlit
+-   Added Korean translation and detailed paper analysis
+-   Implemented secure file handling and error management
+
+#### Key Features Used
+
+-   **OpenAI Assistant API**: Custom research paper analysis
+-   **PDF Processing**:
+    -   Automatic text extraction
+    -   Progress tracking
+    -   Format validation
+-   **arXiv Integration**:
+    -   Direct paper loading
+    -   Metadata extraction
+    -   PDF download handling
+-   **Chat Interface**:
+    -   Real-time streaming responses
+    -   Context-aware conversation
+    -   Korean translation support
+-   **Security Features**:
+    -   Input sanitization
+    -   File validation
+    -   Session management
+    -   API key security
+
+#### Result
+
+-   Interactive research paper analysis system
+-   Bilingual support (Korean/English)
+-   Comprehensive paper understanding assistance
+-   Secure file processing system
+-   User-friendly chat interface
+
 ---
 
 ## 🛠 Tech Stack
@@ -263,8 +300,12 @@ langchain-practice/
 │   │   └── app.py
 │   ├── rag_app/                  # RAG application
 │   │   └── app.py
-│   └── sitemap_app/              # Cloudflare documentation chatbot
-│       └── app.py
+│   ├── sitemap_app/              # Cloudflare documentation chatbot
+│   │   └── app.py
+│   └── final_app/                 # Research Paper Analysis Assistant
+│       ├── app.py                 # Main application
+│       ├── requirements.txt       # Dependencies
+│       └── paper_analysis.log     # Application logs
 │
 ├── notebooks/                    # Jupyter notebooks for daily experiments
 │   ├── data/                     # Supporting data files
@@ -338,6 +379,12 @@ langchain-practice/
 
         ```bash
         streamlit run apps/sitemap_app/app.py
+        ```
+
+    - For Research Paper Analysis Assistant:
+
+        ```bash
+        streamlit run apps/final_app/app.py
         ```
 
 ## 📌 References
